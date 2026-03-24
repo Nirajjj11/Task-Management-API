@@ -13,7 +13,34 @@ Node.js + Express + MongoDB task management backend with JWT auth.
 - Middleware: `authMiddleware` verifies `Authorization: Bearer <token>`
 - Mongoose models: `User`, `Task`
 
-## 🛠️ Prerequisites
+## �️ Folder structure
+
+```
+TaskManagementBackend/
+├─ .env                # environment variables (local only)
+├─ .gitignore
+├─ package.json
+├─ README.md
+├─ server.js           # app entry point
+├─ config/
+│  └─ db.js            # Mongoose DB connection
+├─ controllers/
+│  ├─ authController.js
+│  └─ taskController.js
+├─ middleware/
+│  └─ authMiddleware.js
+├─ models/
+│  ├─ Task.js
+│  └─ user.js
+├─ routes/
+│  ├─ authRoutes.js
+│  └─ taskRoutes.js
+├─ utils/
+│  └─ generateToken.js
+└─ node_modules/
+```
+
+## �🛠️ Prerequisites
 
 - Node.js 16+ (tested)
 - npm
