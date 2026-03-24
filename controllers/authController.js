@@ -19,8 +19,9 @@ exports.register = async (req, res) => {
 // Login
 
 // exports.login = async (req,res)=>{
-//       console.log("BODY : " ,req.body)
-//       const {email , password} = req.body;
+//       console.log("BODY : " ,req.body)            // Yaha par jo aana tha wo nahi aa raha
+//       const {email , password} = req.body;        // or yaha par kahali aa raha 
+
 
 
 //       const user = await User.findOne({email})
@@ -32,7 +33,9 @@ exports.register = async (req, res) => {
 //       if (!isMatch) return res.status(400).json({msg: "Wrong password !"})
 
 //       res.json({token : generateToken(user._id)})
+
 // }
+
 
 exports.login = async (req, res) => {
       console.log("BODY:", req.body)
