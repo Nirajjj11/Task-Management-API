@@ -10,7 +10,7 @@ const Task = require("../models/Task")
 // }
 
 exports.createTask = async (req, res) => {
-      console.log("USER ID:", req.user)  // 🔍 debug
+      console.log("USER ID:", req.user)  //  debug
 
       const task = await Task.create({
             title: req.body.title,
@@ -24,7 +24,7 @@ exports.createTask = async (req, res) => {
 
 exports.getTasks = async (req,res)=>{
       
-      console.log(req.params)
+      console.log("REQ.USER:", req.user)
 
       const task = await Task.find({
             userId : req.user

@@ -1,27 +1,55 @@
-const jwt = require("jsonwebtoken")
+// const jwt = require("jsonwebtoken")
+
+// const authMiddleware = (req, res, next) => {
+//       const authHeader = req.headers.authorization
+
+//       console.log("HEADER:", authHeader); // 👈 DEBUG
+
+//       // 🔴 Check token exists
+//       if (!authHeader || !authHeader.startsWith("Bearer ")) {
+//             return res.status(401).json({ msg: "No token provided" })
+//       }
+
+//       const token = authHeader.split(" ")[1]
+
+//       try {
+//             const decoded = jwt.verify(token, process.env.JWT_SECRET)
+
+//             // ✅ IMPORTANT: match your token payload
+//             req.user = decoded.id
+
+//             next()
+//       } catch (err) {
+//             return res.status(401).json({ msg: "Invalid token" })
+//       }
+// }
+
+// module.exports = authMiddleware
+
+const jwt = require("jsonwebtoken");
 
 const authMiddleware = (req, res, next) => {
-      const authHeader = req.headers.authorization
+      const authHeader = req.headers.authorization;
 
-      console.log("HEADER:", authHeader); // 👈 DEBUG
+      console.log("HEADER:", authHeader);
 
-      // 🔴 Check token exists
-      if (!authHeader || !authHeader.startsWith("Bearer ")) {
-            return res.status(401).json({ msg: "No token provided" })
+      if (!authHeader) {
+            return res.status(401).json({ msg: "No token provided" });
       }
-
-      const token = authHeader.split(" ")[1]
 
       try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
+            const token = authHeader.split(" ")[1];
 
-            // ✅ IMPORTANT: match your token payload
-            req.user = decoded.id
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-            next()
+            console.log("DECODED:", decoded);  // 👈 IMPORTANT
+
+            req.user = decoded.id;   // 👈 MUST be id
+
+            next();
       } catch (err) {
-            return res.status(401).json({ msg: "Invalid token" })
+            res.status(401).json({ msg: "Invalid token" });
       }
-}
+};
 
-module.exports = authMiddleware
+module.exports = authMiddleware;
