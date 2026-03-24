@@ -20,7 +20,7 @@ exports.getTasks = async (req,res)=>{
 
 // Delete Task
 
-exports.deleteTaks = async(req,res)=>{
+exports.deleteTask = async(req,res)=>{
       await Task.findByIdAndDelete(req.params.id)
       res.json({msg : "Task deleted"})
 }

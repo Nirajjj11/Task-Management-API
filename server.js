@@ -12,13 +12,16 @@ const port = process.env.PORT
 const app = express();
 app.use(express.json())
 
-app.get((req,res)=>{
-      res.send("Your message is getting")
-})
+// app.get("/",(req,res)=>{                                 // for test
+//       res.send("Your message is getting")
+// })
+
+app.use("/api/auth", require("./routes/authRoutes"))
+app.use("/api/tasks", require("./routes/taskRoutes"))
 
 
 app.listen(port,()=>{
-      console.log(`Server is listening on port http://localhost:${port}`)
+      console.log(`Server is listening on port http://127.0.0.1:${port}`)
 })
 
 
