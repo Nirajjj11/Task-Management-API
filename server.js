@@ -11,10 +11,16 @@ const port = process.env.PORT
 
 const app = express();
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))  // ✅ required
 
 // app.get("/",(req,res)=>{                                 // for test
 //       res.send("Your message is getting")
 // })
+
+app.post("/debug", (req, res) => {
+      console.log("BODY:", req.body)
+      res.json(req.body)
+})
 
 app.use("/api/auth", require("./routes/authRoutes"))
 app.use("/api/tasks", require("./routes/taskRoutes"))

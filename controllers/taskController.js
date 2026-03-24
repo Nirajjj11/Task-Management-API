@@ -6,7 +6,7 @@ exports.createTask = async (req,res)=>{
             title : req.body.title,
             userId : req.user
       })
-      res.json(taks)
+      res.json(task)
 }
 
 // GET task
