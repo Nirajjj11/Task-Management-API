@@ -1,11 +1,22 @@
 const Task = require("../models/Task")
 
 // Create Task 
-exports.createTask = async (req,res)=>{
+// exports.createTask = async (req,res)=>{
+//       const task = await Task.create({
+//             title : req.body.title,
+//             userId : req.user
+//       })
+//       res.json(task)
+// }
+
+exports.createTask = async (req, res) => {
+      console.log("USER ID:", req.user)  // 🔍 debug
+
       const task = await Task.create({
-            title : req.body.title,
-            userId : req.user
+            title: req.body.title,
+            userId: req.user
       })
+
       res.json(task)
 }
 
