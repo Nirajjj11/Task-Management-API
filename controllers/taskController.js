@@ -21,6 +21,10 @@ exports.getTasks = async (req,res)=>{
 // Delete Task
 
 exports.deleteTask = async(req,res)=>{
-      await Task.findByIdAndDelete(req.params.id)
+//    await Task.findByIdAndDelete(req.params.id)
+      await Task.findOneAndDelete({
+      _id: req.params.id,
+      userId: req.user
+      })
       res.json({msg : "Task deleted"})
 }
