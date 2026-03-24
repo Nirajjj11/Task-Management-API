@@ -46,10 +46,17 @@ TaskManagementBackend/
 - npm
 - MongoDB running (local or cloud)
 
+### Required libraries (install with npm)
+
+```bash
+npm install express mongoose dotenv bcryptjs jsonwebtoken morgan
+npm install --save-dev nodemon
+```
+
 ## ⚙️ Install and run
 
 ```bash
-cd "d:/niraj/programing/NODE JS/TaskManagementBackend"
+git clone https://github.com/Nirajjj11/Task-Management-API.git
 npm install
 ```
 
