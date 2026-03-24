@@ -23,6 +23,9 @@ exports.createTask = async (req, res) => {
 // GET task
 
 exports.getTasks = async (req,res)=>{
+      
+      console.log(req.params)
+
       const task = await Task.find({
             userId : req.user
       })
